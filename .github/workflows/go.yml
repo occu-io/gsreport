@@ -20,6 +20,8 @@ jobs:
       run: mkdir -p $HOME/go/bin
 
     - name: Get dependencies
+      env: 
+        GOPATH: $HOME/go
       run: |
         go get -v -t -d ./...
         if [ -f Gopkg.toml ]; then
