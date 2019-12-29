@@ -21,7 +21,7 @@ jobs:
 
     - name: Get dependencies
       env: 
-        GOPATH: /home/runner/go
+        GOPATH: /home/runner/go:/home/runner/work/gsreport/gsreport
       run: |
         go get -v -t -d ./...
         if [ -f Gopkg.toml ]; then
