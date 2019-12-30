@@ -17,7 +17,9 @@ jobs:
       uses: actions/checkout@v1
 
     - name: Create bin directory
-      run: mkdir -p $HOME/go/bin
+      run: |
+        mkdir -p $HOME/go/bin
+        mkdir -p ${{ runner.workspace }}/bin 
 
     - name: Get dependencies
       env: 
