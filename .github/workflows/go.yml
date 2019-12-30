@@ -18,7 +18,6 @@ jobs:
 
     - name: Create bin directory
       run: |
-        mkdir -p $HOME/go/bin
         mkdir -p ${{ runner.workspace }}/bin 
 
     - name: Get dependencies
@@ -29,7 +28,7 @@ jobs:
         go get -v -t -d ./...
         if [ -f Gopkg.toml ]; then
             curl https://raw.githubusercontent.com/golang/dep/master/install.sh | sh
-            $HOME/go/bin/dep ensure
+            ${{ runner.workspace }}/bin/dep ensure
         fi
 
     - name: Build
