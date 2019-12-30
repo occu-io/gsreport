@@ -21,7 +21,8 @@ jobs:
 
     - name: Get dependencies
       env: 
-        GOPATH: /home/runner/go:/home/runner/work/gsreport/gsreport
+        GOPATH: ${{ runner.workspace }}
+        GO111MODULE: off
       run: |
         go get -v -t -d ./...
         if [ -f Gopkg.toml ]; then
@@ -30,4 +31,7 @@ jobs:
         fi
 
     - name: Build
+      env:
+        GOPATH: ${{ runner.workspace }}
+        GO111MODULE: off
       run: go build -v .
